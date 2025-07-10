@@ -90,10 +90,14 @@
 }
 
 .dot{
-    width: 1em;
-    height: 1em;
+    width: 1rem;
+    height: 1rem;
     background: $main-color;
     border-radius: 50%;
     display: inline-block;
     margin-right: 0.63em;
+    &.small{
+        width: 0.7rem;
+        height: 0.7rem;
+    }
 }

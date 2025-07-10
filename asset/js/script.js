@@ -166,7 +166,9 @@ function intro() {
     delay: 0.3,
   });
 
-  master.add(introAnimation()).add(fadeInElements(".header, .gnb__nav, main"));
+  master.add(introAnimation())
+  .add(fadeInElements(".header, .gnb__nav"))
+  .add(fadeInElements(".section__1 .text-bx"));
   // .add(skewInElements("h1, .hero__col--2 img"), "-=1");
 }
 
