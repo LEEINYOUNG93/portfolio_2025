@@ -1,47 +1,34 @@
-const lenis = new Lenis();
-
-lenis.on("scroll", ScrollTrigger.update);
-
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
+const lenis = new Lenis({
+  duration: 1.5,
+  smooth: true,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 });
 
-gsap.ticker.lagSmoothing(0);
-
-//링크클릭
-function getSamePageAnchor(link) {
-  if (
-    link.protocol !== window.location.protocol ||
-    link.host !== window.location.host ||
-    link.pathname !== window.location.pathname ||
-    link.search !== window.location.search
-  ) {
-    return false;
-  }
-
-  return link.hash;
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
 }
+requestAnimationFrame(raf);
 
-function scrollToHash(hash, e) {
-  const elem = hash ? document.querySelector(hash) : false;
-  if (elem) {
-    if (e) e.preventDefault();
-    gsap.to(window, { scrollTo: elem });
-  }
-}
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', (e) => {
+    const targetId = anchor.getAttribute('href');
+    if (targetId === '#') return;
 
-document.querySelectorAll("a[href]").forEach((a) => {
-  a.addEventListener("click", (e) => {
-    scrollToHash(getSamePageAnchor(a), e);
+    const targetEl = document.querySelector(targetId);
+    if (targetEl) {
+      e.preventDefault();
+      lenis.scrollTo(targetEl);
+    }
   });
 });
 
-scrollToHash(window.location.hash);
-
 $(window).on("load", function () {
+  $(window).scrollTop(0);
   intro();
   mouseEffect();
   timeBox();
+  lineEffect();
   AOS.init();
 });
 
@@ -91,6 +78,8 @@ function intro() {
   const animationOptions = {
     ease: "power3.inOut",
   };
+
+  document.body.style.overflow = "hidden";
 
   const introAnimation = () => {
     const tl = gsap.timeline({
@@ -163,12 +152,14 @@ function intro() {
 
   const master = gsap.timeline({
     paused: false,
-    delay: 0.3,
   });
 
-  master.add(introAnimation())
-  .add(fadeInElements(".header, .gnb__nav"))
-  .add(fadeInElements(".section__1 .text-bx"));
+  master
+    .add(introAnimation())
+    .add(fadeInElements(".header, .gnb__nav, .section__1"))
+    .add(() => {
+      document.body.style.overflow = "";
+    });
   // .add(skewInElements("h1, .hero__col--2 img"), "-=1");
 }
 
@@ -188,4 +179,33 @@ function timeBox() {
 
   getkoreaTime();
   setInterval(getkoreaTime, 1000);
+}
+
+function lineEffect() {
+  $("[data-slideUp=true]").each(function (i, el) {
+    child = $(this).find(".line");
+    line = $(this).find(".border-line");
+    gsap.to(line, {
+      scrollTrigger: {
+        trigger: el,
+        start: "top 50%",
+        end: "bottom center",
+        ease: "power3.out",
+        toggleActions: "restart none reverse none",
+      },
+      width: "100%",
+      duration: 1,
+      stagger: 0.1,
+    });
+    gsap.to(child, {
+      scrollTrigger: {
+        trigger: el,
+        start: "top 50%",
+        end: "bottom top",
+        toggleActions: "restart none reverse none",
+      },
+      transform: "translateY(0%)",
+      stagger: 0.1,
+    });
+  });
 }

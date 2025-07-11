@@ -17,11 +17,10 @@
     &__title {
         color: #fff;
         text-align: center;
-        mix-blend-mode: difference;
         z-index: 2;
         transform: translateY(40px);
-        font-size: 4.38em;
-        letter-spacing: -0.3em;
+        font-size: 3.75rem;
+        line-height: 0.85;
     }
 
     &__background {
@@ -48,21 +47,82 @@
     overflow: hidden;
 }
 
-.section__1 {
-    height: 100vh;
-    position: relative;
-
-    .container {
-        display: flex;
-        align-items: end;
-        width: 100%;
-        height: 100%;
-        padding: 0 20px 12.5em;
-        position: relative;
+.section {
+    .main-title{
+        font-size: 3.75rem;
+        font-family: $font-sub;
+        text-transform: uppercase;
+        line-height: 0.85;
     }
-    .scroll-bx{
-        position: absolute;
-        right: 0;
-        bottom: 0;
+    .main-dec{
+        font-size: 1.875rem;
+        line-height: 1.4;
+    }
+    .border-bx {
+        position: relative;
+        padding-bottom: 2.5rem;
+        margin-bottom: 2.5rem;
+
+        .border-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background: #DFAE76
+        }
+
+    }
+
+    &__1 {
+        height: 100vh;
+        position: relative;
+
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-160deg);
+
+            .lottie-container {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .container {
+            display: flex;
+            align-items: end;
+            width: 100%;
+            height: 100%;
+            padding: 0 20px 10rem;
+            position: relative;
+
+            .lottie {
+                &-container {
+                    @include d-flex;
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+
+        .text-bx {
+            width: 100%;
+        }
+
+        .scroll-bx {
+            position: absolute;
+            right: 0;
+            bottom: 10rem;
+        }
+    }
+
+    &__2 {
+        height: 100vh;
+        padding: 12.5rem 0;
     }
 }
