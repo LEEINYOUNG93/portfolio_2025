@@ -23,6 +23,20 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+history.scrollRestoration = "manual";
+
+$(document).ready(function () {
+  $(window).scroll(function () {
+    var curr = $(this).scrollTop();
+
+    if (curr > 50) {
+      $(".header").addClass("scrolled");
+    } else {
+      $(".header").removeClass("scrolled");
+    }
+  });
+});
+
 $(window).on("load", function () {
   $(window).scrollTop(0);
   intro();
@@ -156,7 +170,7 @@ function intro() {
 
   master
     .add(introAnimation())
-    .add(fadeInElements(".header, .gnb__nav, .section__1"))
+    .add(fadeInElements(".header, .gnb__nav, .section__1"), "-=1")
     .add(() => {
       document.body.style.overflow = "";
     });
@@ -183,7 +197,7 @@ function timeBox() {
 
 function lineEffect() {
   $("[data-slideUp=true]").each(function (i, el) {
-    child = $(this).find(".line");
+    up = $(this).find(".text-up");
     line = $(this).find(".border-line");
     gsap.to(line, {
       scrollTrigger: {
@@ -197,14 +211,18 @@ function lineEffect() {
       duration: 1,
       stagger: 0.1,
     });
-    gsap.to(child, {
+    gsap.to(up, {
       scrollTrigger: {
         trigger: el,
         start: "top 50%",
         end: "bottom top",
         toggleActions: "restart none reverse none",
       },
-      transform: "translateY(0%)",
+      y: "0%",
+      rotateX: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
       stagger: 0.1,
     });
   });

@@ -11,7 +11,7 @@
     <meta property="og:description" content="Portfolio" />
     <meta property="og:image" content="" />
     <meta property="og:site_name" content="이인영 | 2025 포트폴리오" />
-    <title>test</title><!--Inyoung's Portfolio-->
+    <title>Inyoung's Portfolio</title><!--Inyoung's Portfolio-->
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -30,16 +30,16 @@
 </head>
 
 <body>
-    <!-- <section class="intro">
+    <section class="intro">
         <h2 class="intro__title hidden">2025 portfolio<br>Lee-inyoung</h2>
         <div class="intro__background intro__background--left"></div>
         <div class="intro__background intro__background--right"></div>
-    </section> -->
+    </section>
 
     <header class="header">
         <div class="container">
             <div class="header__left">
-                <!--INYOUNG--> <span class="dot small"></span>
+                INYOUNG <span class="dot small"></span>
             </div>
             <div class="header__right">
                 <div class="time-bx">
@@ -63,8 +63,8 @@
         </div>
         <div class="gnb">
             <nav class="gnb__nav">
-                <a href="#">About Me</a>
-                <a href="#">Project</a>
+                <a href="#about">About Me</a>
+                <a href="#project">Project</a>
                 <a href="#">Skill</a>
                 <a href="#Intro">Go Top</a>
             </nav>
@@ -79,7 +79,7 @@
             </div>
             <div class="container">
                 <div class="text-bx">
-                    <p class="main-dec">가나다라마바사아자차카타파하</p>
+                    <p class="main-dec">Learning, Growing, and Developing</p>
                     <h2 class="main-title">WEB PUBLISHER</h2>
                 </div>
                 <div class="scroll-bx">
@@ -90,16 +90,55 @@
                 </div>
             </div>
         </section>
-        <section class="section section__2" data-slideUp="true">
+        <section class="section section__2" data-slideUp="true" id="about">
             <span class="blind">자기소개</span>
             <div class="container">
                 <div class="border-bx">
-                    <h2 class="main-title">TEST</h2>
+                    <h2 class="main-title text-wrap"><span class="text-up">About Me</span></h2>
                     <i class="border-line"></i>
                 </div>
-                <p class="main-dec">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim ullam amet molestiae
-                    facilis officiis exercitationem aliquam consequuntur. Possimus nostrum amet similique sunt quidem
-                    fugit recusandae nesciunt officiis harum, dolores culpa!</p>
+                <p class="main-dec">
+                    안녕하세요. 퍼블리싱 경력 5년차 웹 퍼블리셔 이인영입니다. <br>
+                    저는 다양한 라이브러리와 스크립트를 활용한 동적인 인터랙션 구현에 관심이 많으며, 클라이언트의 니즈에 맞춘 웹사이트를 제작해왔습니다. <br>
+                    또한 의미 있는 마크업을 통해 SEO에 최적화된 구조를 구성하고, 재사용 가능한 공통 소스를 활용하여 유지보수가 용이한 코드를 작성합니다. <br>
+                    기획, 디자인, 개발 등 여러 팀과의 협업 과정에서 원활한 커뮤니케이션과 유연한 일정 관리를 통해 프로젝트를 긍정적으로 이끌어가고 있습니다. <br>
+                    앞으로는 최신 트렌드에 맞는 다양한 프레임워크와 라이브러리를 익히며 지속적으로 성장하는 퍼블리셔가 되고자 합니다.
+                </p>
+            </div>
+        </section>
+        <section class="section section__3" data-slideUp="true" id="project">
+            <span class="blind">프로젝트</span>
+            <div class="container">
+                <div class="border-bx">
+                    <h2 class="main-title text-wrap"><span class="text-up">Project</span></h2>
+                    <i class="border-line"></i>
+                </div>
+                <div class="flex-bx">
+                    <div class="info-bx">
+                        <button type="button" class="sub-title-btn">
+                            <p>woori-net</p>
+                        </button>
+
+                        <p class="txt1">기여도: 100%</p>
+                        <ul>
+                            <li>#gsap</li>
+                            <li>#js</li>
+                            <li>#swiper</li>
+                            <li>#scss</li>
+                        </ul>
+                        <p class="txt2">스크립트와 GSAP를 활용하여 스크롤 애니메이션을 구현한 사이트입니다.</p>
+                    </div>
+                    <div class="link-bx">
+                        <a href="https://www.woori-net.com/kor/main/main.html" target="_blank">
+                            <div class="img-bx">
+                                <img src="./asset/images/project-1.jpg" alt="우리넷" loading="lazy">
+                            </div>
+                            <div class="hidden-txt">
+                                <p>GO SITE</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
