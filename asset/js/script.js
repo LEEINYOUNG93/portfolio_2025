@@ -13,13 +13,16 @@ requestAnimationFrame(raf);
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', (e) => {
     const targetId = anchor.getAttribute('href');
-    if (targetId === '#') return;
+    if (targetId === '#' || !document.querySelector(targetId)) return;
 
-    const targetEl = document.querySelector(targetId);
-    if (targetEl) {
-      e.preventDefault();
-      lenis.scrollTo(targetEl);
-    }
+    e.preventDefault();
+
+    setTimeout(() => {
+      lenis.scrollTo(document.querySelector(targetId), {
+        offset: 0,
+        immediate: false,
+      });
+    }, 50);
   });
 });
 
@@ -35,6 +38,7 @@ $(document).ready(function () {
       $(".header").removeClass("scrolled");
     }
   });
+  
 });
 
 $(window).on("load", function () {
@@ -93,7 +97,8 @@ function intro() {
     ease: "power3.inOut",
   };
 
-  document.body.style.overflow = "hidden";
+  document.documentElement.classList.add("no-scroll");
+  document.body.classList.add("no-scroll");
 
   const introAnimation = () => {
     const tl = gsap.timeline({
@@ -104,7 +109,6 @@ function intro() {
     });
 
     tl.to(".intro__title", {
-      duration: 1,
       y: 0,
       autoAlpha: 1,
     })
@@ -118,7 +122,6 @@ function intro() {
       .to(
         ".intro__title",
         {
-          duration: 1,
           y: -60,
           autoAlpha: 0,
         },
@@ -136,45 +139,25 @@ function intro() {
     return tl;
   };
 
-  const skewInElements = (elements) => {
-    const tl = gsap.timeline();
-
-    tl.from(elements, {
-      duration: 1,
-      ease: animationOptions.ease,
-      skewY: -5,
-      autoAlpha: 0,
-      y: 40,
-    });
-
-    return tl;
-  };
-
   const fadeInElements = (elements) => {
-    const tl = gsap.timeline();
-
-    tl.from(elements, {
+    return gsap.timeline().from(elements, {
       duration: 1,
       ease: animationOptions.ease,
       y: "20px",
       autoAlpha: 0,
       stagger: 0.1,
     });
-
-    return tl;
   };
 
-  const master = gsap.timeline({
-    paused: false,
-  });
+  const master = gsap.timeline();
 
   master
     .add(introAnimation())
-    .add(fadeInElements(".header, .gnb__nav, .section__1"), "-=1")
+    .add(fadeInElements(".header, .gnb__nav, .section__1"), "-=0.5")
     .add(() => {
-      document.body.style.overflow = "";
+      document.documentElement.classList.remove("no-scroll");
+      document.body.classList.remove("no-scroll");
     });
-  // .add(skewInElements("h1, .hero__col--2 img"), "-=1");
 }
 
 function timeBox() {
@@ -205,7 +188,7 @@ function lineEffect() {
         start: "top 50%",
         end: "bottom center",
         ease: "power3.out",
-        toggleActions: "restart none reverse none",
+        //toggleActions: "restart none reverse none",
       },
       width: "100%",
       duration: 1,
@@ -216,7 +199,7 @@ function lineEffect() {
         trigger: el,
         start: "top 50%",
         end: "bottom top",
-        toggleActions: "restart none reverse none",
+        //toggleActions: "restart none reverse none",
       },
       y: "0%",
       rotateX: 0,

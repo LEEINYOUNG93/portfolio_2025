@@ -103,7 +103,7 @@
     background: $main-color;
     border-radius: 50%;
     display: inline-block;
-    margin-right: 0.63em;
+    margin-right: 0.625rem;
 
     &.small {
         width: 0.7rem;
@@ -126,4 +126,9 @@
         transform-origin: bottom;
         opacity: 0;
     }
+}
+
+.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
 }

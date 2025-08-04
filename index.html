@@ -26,7 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.14/lottie.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script defer src="./asset/js/script.js" defer></script>
+    <script defer src="./asset/js/script.js"></script>
 </head>
 
 <body>
@@ -65,7 +65,7 @@
             <nav class="gnb__nav">
                 <a href="#about">About Me</a>
                 <a href="#project">Project</a>
-                <a href="#">Skill</a>
+                <a href="#skill">Skill</a>
                 <a href="#Intro">Go Top</a>
             </nav>
         </div>
@@ -98,12 +98,20 @@
                     <i class="border-line"></i>
                 </div>
                 <p class="main-dec">
-                    안녕하세요. 퍼블리싱 경력 5년차 웹 퍼블리셔 이인영입니다. <br>
+                    안녕하세요. 퍼블리싱 경력 4년차 웹 퍼블리셔 이인영입니다. <br>
                     저는 다양한 라이브러리와 스크립트를 활용한 동적인 인터랙션 구현에 관심이 많으며, 클라이언트의 니즈에 맞춘 웹사이트를 제작해왔습니다. <br>
                     또한 의미 있는 마크업을 통해 SEO에 최적화된 구조를 구성하고, 재사용 가능한 공통 소스를 활용하여 유지보수가 용이한 코드를 작성합니다. <br>
                     기획, 디자인, 개발 등 여러 팀과의 협업 과정에서 원활한 커뮤니케이션과 유연한 일정 관리를 통해 프로젝트를 긍정적으로 이끌어가고 있습니다. <br>
                     앞으로는 최신 트렌드에 맞는 다양한 프레임워크와 라이브러리를 익히며 지속적으로 성장하는 퍼블리셔가 되고자 합니다.
                 </p>
+
+                <div class="contact-bx">
+                    <h3 class="title">CONTACT <span class="dot"></span></h3>
+                    <ul>
+                        <li>Email : youngee_316@naver.com</li>
+                        <li>Tel : 010-6478-3327</li>
+                    </ul>
+                </div>
             </div>
         </section>
         <section class="section section__3" data-slideUp="true" id="project">
@@ -113,7 +121,7 @@
                     <h2 class="main-title text-wrap"><span class="text-up">Project</span></h2>
                     <i class="border-line"></i>
                 </div>
-                <div class="flex-bx">
+                <div class="flex-bx" data-aos="fade-up">
                     <div class="info-bx">
                         <button type="button" class="sub-title-btn">
                             <p>woori-net</p>
@@ -131,12 +139,163 @@
                     <div class="link-bx">
                         <a href="https://www.woori-net.com/kor/main/main.html" target="_blank">
                             <div class="img-bx">
-                                <img src="./asset/images/project-1.jpg" alt="우리넷" loading="lazy">
+                                <img src="./asset/images/project-1.jpg" alt="우리넷" loading="lazy" class="thumbnail">
                             </div>
                             <div class="hidden-txt">
                                 <p>GO SITE</p>
                             </div>
                         </a>
+                    </div>
+                </div>
+                <div class="flex-bx reverse" data-aos="fade-up">
+                    <div class="info-bx">
+                        <button type="button" class="sub-title-btn">
+                            <p>ahnparkcrime</p>
+                        </button>
+
+                        <p class="txt1">기여도: 100%</p>
+                        <ul>
+                            <li>#gsap</li>
+                            <li>#js</li>
+                            <li>#swiper</li>
+                            <li>#scss</li>
+                        </ul>
+                        <p class="txt2">유튜브 API와 tiuch event를 사용하여, 숏츠 화면을 구현한 사이트입니다.</p>
+                    </div>
+                    <div class="link-bx">
+                        <a href="https://ahnparkcrime.com/" target="_blank">
+                            <div class="img-bx">
+                                <img src="./asset/images/project-2.jpg" alt="법무법인 안팍" loading="lazy" class="thumbnail">
+                            </div>
+                            <div class="hidden-txt">
+                                <p>GO SITE</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-bx" data-aos="fade-up">
+                    <div class="info-bx">
+                        <button type="button" class="sub-title-btn">
+                            <p>masstige</p>
+                        </button>
+
+                        <p class="txt1">기여도: 100%</p>
+                        <ul>
+                            <li>#gsap</li>
+                            <li>#js</li>
+                            <li>#swiper</li>
+                            <li>#scss</li>
+                        </ul>
+                        <p class="txt2">GSAP를 활용하여 인터랙션한 애니메이션을 구현한 사이트입니다.</p>
+                    </div>
+                    <div class="link-bx">
+                        <a href="https://www.woori-net.com/kor/main/main.html" target="_blank">
+                            <div class="img-bx">
+                                <img src="./asset/images/project-3.jpg" alt="매스티지" loading="lazy" class="thumbnail">
+                            </div>
+                            <div class="hidden-txt">
+                                <p>GO SITE</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-bx reverse" data-aos="fade-up">
+                    <div class="info-bx">
+                        <button type="button" class="sub-title-btn">
+                            <p>ahnparkcrime</p>
+                        </button>
+
+                        <p class="txt1">기여도: 100%</p>
+                        <ul>
+                            <li>#gsap</li>
+                            <li>#js</li>
+                            <li>#swiper</li>
+                            <li>#scss</li>
+                        </ul>
+                        <p class="txt2">keyframe과 GSAP, 스크립트를 활용해만든 사이트입니다. </p>
+                    </div>
+                    <div class="link-bx">
+                        <a href="https://ahnparkcrime.com/" target="_blank">
+                            <div class="img-bx">
+                                <img src="./asset/images/project-4.jpg" alt="세림로보틱스" loading="lazy" class="thumbnail">
+                            </div>
+                            <div class="hidden-txt">
+                                <p>GO SITE</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-bx" data-aos="fade-up">
+                    <div class="info-bx">
+                        <button type="button" class="sub-title-btn">
+                            <p>medi-map</p>
+                        </button>
+
+                        <p class="txt1">기여도: 100%</p>
+                        <ul>
+                            <li>#gsap</li>
+                            <li>#js</li>
+                            <li>#swiper</li>
+                            <li>#scss</li>
+                        </ul>
+                        <p class="txt2">
+                            병원사이트를 기반으로 2개 사이트를 확장한 마케팅 플랫폼입니다.
+                        </p>
+                    </div>
+                    <div class="link-bx">
+                        <a href="https://www.medi-map.co.kr/kor/main/main.html" target="_blank">
+                            <div class="img-bx">
+                                <img src="./asset/images/project-5.jpg" alt="메디맵플랫폼" loading="lazy" class="thumbnail">
+                            </div>
+                            <div class="hidden-txt">
+                                <p>GO SITE</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="etc-site-list">
+                    <h3 class="main-title">Etc Link<span class="dot"></span></h3>
+                    <a href="https://theventi.onrender.com/index.html" target="_blank">더벤티(APP_리뉴얼)</a>
+                    <a href="https://www.hardbank.co.kr/main/main.html" target="_blank">하드뱅크(PC)</a>
+                    <a href="./asset/inyoung_portfolio.pdf" download class="download-txt">이 외 모든 작업물은 notion으로
+                        대체하겠습니다.</a>
+                </div>
+            </div>
+        </section>
+        <section class="section section__4" data-slideUp="true" id="skill">
+            <span class="blind">기술</span>
+            <div class="container">
+                <div class="border-bx" data-aod="fade-up">
+                    <h2 class="main-title">Skill</h2>
+                    <i class="border-line"></i>
+                </div>
+                <div class="marquee-bx">
+                    <div class="marquee marquee-top">
+                        <ul class="marquee-content">
+                            <li><img src="./asset/images/skill_1.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_2.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_3.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_4.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_5.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_6.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_7.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_8.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_9.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_10.svg" alt="" loading="lazy"></li>
+                        </ul>
+                        <ul class="marquee-content" aria-hidden="true">
+                            <li><img src="./asset/images/skill_1.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_2.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_3.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_4.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_5.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_6.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_7.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_8.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_9.svg" alt="" loading="lazy"></li>
+                            <li><img src="./asset/images/skill_10.svg" alt="" loading="lazy"></li>
+                        </ul>
                     </div>
                 </div>
             </div>
