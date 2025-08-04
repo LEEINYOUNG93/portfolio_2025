@@ -1,28 +1,44 @@
-const lenis = new Lenis({
-  duration: 1.5,
-  smooth: true,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-});
+// const lenis = new Lenis({
+//   duration: 1.5,
+//   smooth: true,
+//   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+// });
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
+// function raf(time) {
+//   lenis.raf(time);
+//   requestAnimationFrame(raf);
+// }
+// requestAnimationFrame(raf);
+
+// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+//   anchor.addEventListener("click", (e) => {
+//     const targetId = anchor.getAttribute("href");
+//     if (targetId === "#" || !document.querySelector(targetId)) return;
+
+//     e.preventDefault();
+
+//     // setTimeout(() => {
+//     //   lenis.scrollTo(document.querySelector(targetId), {
+//     //     offset: 0,
+//     //     immediate: false,
+//     //   });
+//     // }, 100);
+//   });
+// });
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', (e) => {
-    const targetId = anchor.getAttribute('href');
-    if (targetId === '#' || !document.querySelector(targetId)) return;
+  anchor.addEventListener("click", (e) => {
+    const targetId = anchor.getAttribute("href");
+    const targetEl = document.querySelector(targetId);
+
+    if (targetId === "#" || !targetEl) return;
 
     e.preventDefault();
 
-    setTimeout(() => {
-      lenis.scrollTo(document.querySelector(targetId), {
-        offset: 0,
-        immediate: false,
-      });
-    }, 50);
+    targetEl.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   });
 });
 
@@ -38,7 +54,6 @@ $(document).ready(function () {
       $(".header").removeClass("scrolled");
     }
   });
-  
 });
 
 $(window).on("load", function () {
@@ -47,8 +62,20 @@ $(window).on("load", function () {
   mouseEffect();
   timeBox();
   lineEffect();
-  AOS.init();
 });
+
+const animationOptions = {
+  ease: "power3.inOut",
+};
+const fadeInElements = (elements) => {
+  return gsap.timeline().from(elements, {
+    duration: 1,
+    ease: animationOptions.ease,
+    y: "20px",
+    autoAlpha: 0,
+    stagger: 0.1,
+  });
+};
 
 function mouseEffect() {
   const customCursor = document.querySelector(".cursor-wrap");
@@ -93,10 +120,6 @@ function mouseEffect() {
 }
 
 function intro() {
-  const animationOptions = {
-    ease: "power3.inOut",
-  };
-
   document.documentElement.classList.add("no-scroll");
   document.body.classList.add("no-scroll");
 
@@ -139,16 +162,6 @@ function intro() {
     return tl;
   };
 
-  const fadeInElements = (elements) => {
-    return gsap.timeline().from(elements, {
-      duration: 1,
-      ease: animationOptions.ease,
-      y: "20px",
-      autoAlpha: 0,
-      stagger: 0.1,
-    });
-  };
-
   const master = gsap.timeline();
 
   master
@@ -180,15 +193,17 @@ function timeBox() {
 
 function lineEffect() {
   $("[data-slideUp=true]").each(function (i, el) {
-    up = $(this).find(".text-up");
-    line = $(this).find(".border-line");
+    const up = $(this).find(".text-up");
+    const line = $(this).find(".border-line");
+    const flexBx = $(this).find(".flex-bx");
     gsap.to(line, {
       scrollTrigger: {
         trigger: el,
         start: "top 50%",
         end: "bottom center",
         ease: "power3.out",
-        //toggleActions: "restart none reverse none",
+        toggleActions: "play none none none",
+        once: true,
       },
       width: "100%",
       duration: 1,
@@ -199,7 +214,8 @@ function lineEffect() {
         trigger: el,
         start: "top 50%",
         end: "bottom top",
-        //toggleActions: "restart none reverse none",
+        toggleActions: "play none none none",
+        once: true,
       },
       y: "0%",
       rotateX: 0,
@@ -207,6 +223,22 @@ function lineEffect() {
       duration: 1,
       ease: "power3.out",
       stagger: 0.1,
+    });
+
+    flexBx.each(function (index, element) {
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: element,
+          start: "top center",
+          toggleActions: "play none none none",
+          once: true,
+        },
+        duration: 1,
+        y: 20,
+        autoAlpha: 0,
+        ease: "power3.inOut",
+        delay: index * 0.15,
+      });
     });
   });
 }

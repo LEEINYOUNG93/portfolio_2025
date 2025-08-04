@@ -187,7 +187,7 @@
             align-items: center;
 
             &+.flex-bx {
-                margin-top: 5rem;
+                margin-top: 12.5rem;
             }
 
             &.reverse {
@@ -282,17 +282,25 @@
 
             a {
                 display: block;
-                font-size: 1.25rem;
+                font-size: 1rem;
 
                 &+a {
                     margin-top: 0.625rem;
                 }
 
-                &.download-txt {
-                    margin-top: 1.5rem;
-                    color: #666;
-                    font-size: 1rem;
+                span {
+                    font-size: 14px;
+                    display: inline-block;
+                    margin-left: 0.375rem;
+                    color: #999;
+                    text-decoration: underline;
                 }
+            }
+
+            .download-txt {
+                margin: 1.5rem 0;
+                color: #666;
+                font-size: 1rem;
             }
         }
     }
@@ -300,8 +308,9 @@
     &__4 {
         padding: 0 0 12.5rem 0;
         height: 100%;
-        .border-bx{
-            .border-line{
+
+        .border-bx {
+            .border-line {
                 width: 100%;
             }
         }
@@ -427,8 +436,10 @@
                 }
             }
 
-            .etc-site-list{
-                a{
+            .etc-site-list {
+
+                a,
+                p {
                     font-size: 14px !important;
                 }
             }
@@ -459,8 +470,8 @@
         }
     }
 
-    .footer{
-        p{
+    .footer {
+        p {
             font-size: 12px;
             color: #999;
         }
